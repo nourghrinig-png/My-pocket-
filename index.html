@@ -1,0 +1,81 @@
+!DOCTYPE html>
+<html>
+<head>
+    <title>My Pocket</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial;
+            background: #f4f7fa;
+            text-align: center;
+            padding: 20px;
+        }
+        .box {
+            background: white;
+            padding: 20px;
+            margin: 15px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        input {
+            padding: 8px;
+            margin: 5px;
+            width: 80%;
+        }
+        button {
+            padding: 10px;
+            background: teal;
+            color: white;
+            border: none;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>💰 My Pocket</h1>
+<p>Manage your money smartly!</p>
+
+<div class="box">
+    <h3>Monthly Income</h3>
+    <input type="number" id="income" placeholder="Enter your income">
+</div>
+
+<div class="box">
+    <h3>Monthly Expenses</h3>
+    <input type="number" id="expenses" placeholder="Enter your expenses">
+</div>
+
+<div class="box">
+    <h3>Daily Limit</h3>
+    <input type="number" id="daily" placeholder="Daily spending limit">
+</div>
+
+<div class="box">
+    <h3>Savings Goal</h3>
+    <input type="number" id="savings" placeholder="Amount to save">
+</div>
+
+<div class="box">
+    <button onclick="check()">Check Balance</button>
+    <p id="result"></p>
+</div>
+
+<script>
+function check() {
+    let income = document.getElementById("income").value;
+    let expenses = document.getElementById("expenses").value;
+    let savings = document.getElementById("savings").value;
+
+    let balance = income - expenses - savings;
+
+    if(balance < 0){
+        document.getElementById("result").innerHTML = "⚠️ You exceeded your limit!";
+    } else {
+        document.getElementById("result").innerHTML = "✅ You are managing well! Remaining: $" + balance;
+    }
+}
+</script>
+
+</body>
+</html>
